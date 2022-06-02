@@ -41,7 +41,6 @@ IgnoredSamples = cp.getint("SIGNAL","IgnoredSamples")
 TH_ratio_width_50 = cp.getfloat("SIGNAL","TH_ratio_width_50")
 
 broker_address = cp.get("COMMUNICATION",'broker_address')
-# broker_address = "192.168.10.238"
 topic_t3t2 = cp.get("COMMUNICATION",'topic_t3t2')
 topic_ready2recv = cp.get("COMMUNICATION",'topic_ready2recv')
 topic_counter = cp.get("COMMUNICATION",'topic_counter')
@@ -75,10 +74,10 @@ TH_MaxIndex = lenOutput - NumSigSamples
 
 
 # init functions
-# generate BPF
+# generate Band pass filter
 pre_BPfiltering = True
-order = 9
-L = f0-2000
+order = 9 # BPF order
+L = f0-2000 
 H = f0+2000
 sos = func.genBPF(order, L, H, fs = RATE)
 
@@ -93,12 +92,11 @@ pi_IO.set_mode(pin1,pigpio.OUTPUT)
 pi_IO.set_mode(pin2,pigpio.OUTPUT)
 
 # generate wave form
-# wf = func.genWaveForm(f0, duration, pin_OUT)
-wf = func.genWaveForm_2pin(f0, duration, pin1, pin2)
+# wf = func.genWaveForm(f0, duration, pin_OUT) # If use one pin and GND, then uncomment this line and comment the next line
+wf = func.genWaveForm_2pin(f0, duration, pin1, pin2) # If use two pins (bi-polar signal), then uncomment this line and comment the above line
 wid = func.createWave(pi_IO, wf)
 
 # setup communication
-# broker_address = "192.168.68.118"
 mqttc = myMQTT(broker_address)
 mqttc.registerTopic(topic_ready2recv)
 
