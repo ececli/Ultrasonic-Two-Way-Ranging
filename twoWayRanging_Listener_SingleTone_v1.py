@@ -14,10 +14,10 @@ confFile = "UR_pyConfig.conf"
 cp = configparser.ConfigParser()
 cp.read(confFile)
 
-warmUpSecond = cp.getint("MIC","WARMUP_TIME")
-CHANNELS = cp.getint("MIC","CHANNELS")
-RATE = cp.getint("MIC","RATE")
-CHUNK = cp.getint("MIC", "CHUNK")
+warmUpSecond = cp.getint("MIC","WARMUP_TIME") # warm up seconds. The data will be thrown away within the first warmUpSecond.
+CHANNELS = cp.getint("MIC","CHANNELS") # always 1 in our setting
+RATE = cp.getint("MIC","RATE") # sampling frequency
+CHUNK = cp.getint("MIC", "CHUNK") # buffer/chunk size of the microphone. e.g., CHUNK=1024 means that when microphone receives 1024 data, it will pass to the python variable.
 FORMAT_SET = cp.get("MIC","FORMAT")
 if FORMAT_SET == "Int":
     FORMAT = pyaudio.paInt32
@@ -27,10 +27,10 @@ else:
     FORMAT = pyaudio.paInt32
     print("Unsupport Format. Have been Changed to Int32.")
 
-ratio = cp.getint("SPEAKER","ratio")
-pin_OUT = cp.getint("SPEAKER","pin_OUT")
-pin1 = cp.getint("SPEAKER","pin_OUT_1")
-pin2 = cp.getint("SPEAKER","pin_OUT_2")
+ratio = cp.getint("SPEAKER","ratio") # a constant in our project. 
+pin_OUT = cp.getint("SPEAKER","pin_OUT") # PIN ID used for driving the buzzer. 
+pin1 = cp.getint("SPEAKER","pin_OUT_1") # PIN ID used for driving the buzzer. 
+pin2 = cp.getint("SPEAKER","pin_OUT_2") # PIN ID used for driving the buzzer. 
 
 f0 = cp.getint("SIGNAL","f0") 
 duration = cp.getint("SIGNAL","duration") # microseconds
