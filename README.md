@@ -96,6 +96,16 @@ The two-way ranging algorithm contains two parts. One is receiving and detecting
 	* After the matched filter, we use `scipy.signal.find_peaks` to detect the peak. After experiments, we found that adding the minimal width of the peak can greatly help to detect the right peak. 
 
 
+## Code Instruction
+
+There are several Python scripts in this branch. 
+
+[twoWayRangingLib_v2.py](/twoWayRangingLib_v2.py): This script contains the functions used in the program. 
+[myMQTT_Class.py](/myMQTT_Class.py): This scripy contains the code for two Raspberry Pi's communication via Wi-Fi. 
+[UR_pyConfig.conf](/UR_pyConfig.conf): This file contains the parameters of the system, such as the duration of the signal, the number of ranging trials, etc. 
+
+
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
