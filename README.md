@@ -98,11 +98,14 @@ The two-way ranging algorithm contains two parts. One is receiving and detecting
 
 ## Code Instruction
 
-There are several Python scripts in this branch. 
+There are several Python scripts and a configure file in this branch. The details of each file is presented below: 
 
-[twoWayRangingLib_v2.py](/twoWayRangingLib_v2.py): This script contains the functions used in the program. 
-[myMQTT_Class.py](/myMQTT_Class.py): This scripy contains the code for two Raspberry Pi's communication via Wi-Fi. 
-[UR_pyConfig.conf](/UR_pyConfig.conf): This file contains the parameters of the system, such as the duration of the signal, the number of ranging trials, etc. 
+
+* [twoWayRanging_Listener_SingleTone_v1.py](/twoWayRanging_Listener_SingleTone_v1.py): This is one of the main file. To let two Raspberry Pis run, one Raspberry Pi needs to run this file, and this file must be run first. The other Raspberry Pi needs to run [twoWayRanging_Master_SingleTone_v1.py](/twoWayRanging_Master_SingleTone_v1.py).
+* [twoWayRanging_Master_SingleTone_v1.py](/twoWayRanging_Master_SingleTone_v1.py): This is the other main file. One Raspberry Pi needs to run this file after the other Raspberry Pi runs [twoWayRanging_Listener_SingleTone_v1.py](/twoWayRanging_Listener_SingleTone_v1.py). 
+* [twoWayRangingLib_v2.py](/twoWayRangingLib_v2.py): This script contains the functions used in the program. Since both [twoWayRanging_Listener_SingleTone_v1.py](/twoWayRanging_Listener_SingleTone_v1.py) and [twoWayRanging_Master_SingleTone_v1.py](/twoWayRanging_Master_SingleTone_v1.py) use almost the same functions, we put the functions in this seperate file. 
+* [myMQTT_Class.py](/myMQTT_Class.py): This scripy contains the code for two Raspberry Pi's communication via Wi-Fi. Note that Both [twoWayRanging_Listener_SingleTone_v1.py](/twoWayRanging_Listener_SingleTone_v1.py) and [twoWayRanging_Master_SingleTone_v1.py](/twoWayRanging_Master_SingleTone_v1.py) import this file. 
+* [UR_pyConfig.conf](/UR_pyConfig.conf): This file contains the parameters of the system, such as the duration of the signal, the number of ranging trials, etc. Note that Both [twoWayRanging_Listener_SingleTone_v1.py](/twoWayRanging_Listener_SingleTone_v1.py) and [twoWayRanging_Master_SingleTone_v1.py](/twoWayRanging_Master_SingleTone_v1.py) import this file. 
 
 
 
