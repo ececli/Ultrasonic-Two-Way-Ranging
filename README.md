@@ -18,8 +18,8 @@ We have developed two versions of the prototype of the ultrasonic ranging system
 * **Version 2** - A developing version that uses a Raspberry Pi,  a piezoelectric buzzer, a MEMS microphone, and a Raspberry Pi Pico. The Raspberry Pi Pico controls the buzzer to send the ultrasonic signal. In this version, the microphone is turned on all the time. It not only detects the signal from the other device, but also detects the signal sending from its own device. The timestamps of the sending and receiving events are the indices of ultrasonic signal samples. Compared with Version 1, this version can obtain more accurate timestamps, which makes the ranging more accurate. 
 
 The detailed descriptions can be found in each version, including the hardware assembling, the algorithm design, and performance evaluation. Here are the links to specific versions:
-* [Version 1 - Use Raspberry Pi Only](https://github.com/ececli/Ultrasonic_Ranging/tree/RPi-4B-Only)
-* [Version 2 - Use Raspberry Pi and Raspberry Pi Pico](https://github.com/ececli/Ultrasonic_Ranging/tree/RPi-4B-and-RPi-Pico)
+* [Version 1 - Use Raspberry Pi Only](https://github.com/ececli/Ultrasonic-Two-Way-Ranging/tree/RPi-4B-Only)
+* [Version 2 - Use Raspberry Pi and Raspberry Pi Pico](https://github.com/ececli/Ultrasonic-Two-Way-Ranging/tree/RPi-4B-and-RPi-Pico)
 
 Please note that the code in the main branch may not be the latest updates. 
 
