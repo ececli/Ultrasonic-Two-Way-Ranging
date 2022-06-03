@@ -86,6 +86,11 @@ In this version, the microphone was turned on all the time, because we use a nov
 * **Signal Processing: Detecting Signal**
 	*   To detect the ultrasonic signal, we applied the [sliding Goertzel filter](https://ieeexplore.ieee.org/document/1184347) to the system. And we modified the [z-score algorithm](https://stackoverflow.com/questions/22583391/peak-signal-detection-in-realtime-timeseries-data) to perform peak detection. 
  
+ 
+## Code Instruction
+
+This branch contains two Python scripts. One is [pub_mic.py](/pub_mic.py) and the other one is [sub_mic_ranging.py](/sub_mic_ranging.py). To make the system run, both two scripts need to be run on each device. Dr. Sae Woo Nam suggested to use different CPUs to run these two scripts. 
+
 
 ## Contributing
 
