@@ -14,10 +14,10 @@ confFile = "UR_pyConfig.conf"
 cp = configparser.ConfigParser()
 cp.read(confFile)
 
-warmUpSecond = cp.getint("MIC","WARMUP_TIME") # warm up seconds. The data will be thrown away within the first warmUpSecond.
+warmUpSecond = cp.getint("MIC","WARMUP_TIME")
 CHANNELS = cp.getint("MIC","CHANNELS") # always 1 in our setting
-RATE = cp.getint("MIC","RATE") # sampling frequency
-CHUNK = cp.getint("MIC", "CHUNK") # buffer/chunk size of the microphone. e.g., CHUNK=1024 means that when microphone receives 1024 data, it will pass to the python variable.
+RATE = cp.getint("MIC","RATE") 
+CHUNK = cp.getint("MIC", "CHUNK") 
 FORMAT_SET = cp.get("MIC","FORMAT")
 if FORMAT_SET == "Int":
     FORMAT = pyaudio.paInt32
