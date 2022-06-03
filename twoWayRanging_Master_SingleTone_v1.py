@@ -97,8 +97,8 @@ pi_IO = pigpio.pi()
 pi_IO.set_mode(pin1, pigpio.OUTPUT)
 pi_IO.set_mode(pin2, pigpio.OUTPUT)
 # generate wave form
-# wf = func.genWaveForm(f0, duration, pin_OUT)
-wf = func.genWaveForm_2pin(f0,duration, pin1, pin2)
+# wf = func.genWaveForm(f0, duration, pin_OUT) # If use one pin and GND, then uncomment this line and comment the next line
+wf = func.genWaveForm_2pin(f0,duration, pin1, pin2) # If use two pins (bi-polar signal), then uncomment this line and comment the above line
 wid = func.createWave(pi_IO, wf)
 
 # setup communication
