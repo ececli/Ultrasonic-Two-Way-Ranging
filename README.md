@@ -105,7 +105,18 @@ There are several Python scripts and a configure file in this branch. The detail
 
 * [twoWayRangingLib_v2.py](/twoWayRangingLib_v2.py): This script contains the functions used in the program. Since both [twoWayRanging_Listener_SingleTone_v1.py](/twoWayRanging_Listener_SingleTone_v1.py) and [twoWayRanging_Master_SingleTone_v1.py](/twoWayRanging_Master_SingleTone_v1.py) use almost the same functions, we put the functions in this seperate file. 
 * [myMQTT_Class.py](/myMQTT_Class.py): This scripy contains the code for two Raspberry Pi's communication via Wi-Fi. Note that both [twoWayRanging_Listener_SingleTone_v1.py](/twoWayRanging_Listener_SingleTone_v1.py) and [twoWayRanging_Master_SingleTone_v1.py](/twoWayRanging_Master_SingleTone_v1.py) import this file. 
-* [UR_pyConfig.conf](/UR_pyConfig.conf): This file contains the parameters of the system, such as the duration of the signal, the number of ranging trials, etc. Both [twoWayRanging_Listener_SingleTone_v1.py](/twoWayRanging_Listener_SingleTone_v1.py) and [twoWayRanging_Master_SingleTone_v1.py](/twoWayRanging_Master_SingleTone_v1.py) import this file. One can change the system parameters in this file. For example, change the signal duration to 2 ms, or change chunk size to 1024. Note that before running this program, one needs to obtain the IP address and write it into this file. The current IP address in this file is based on the experiments at NIST. 
+* [UR_pyConfig.conf](/UR_pyConfig.conf): This file contains the parameters of the system, such as the duration of the signal, the number of ranging trials, etc. Both [twoWayRanging_Listener_SingleTone_v1.py](/twoWayRanging_Listener_SingleTone_v1.py) and [twoWayRanging_Master_SingleTone_v1.py](/twoWayRanging_Master_SingleTone_v1.py) import this file. One can change the system parameters in this file. For example, change the signal duration to 2 ms, or change chunk size to 1024. Note that before running this program, one needs to obtain the IP address and write it into this file. The current IP address in this file is based on the experiments at NIST. The following is the key parameters in this program:
+	
+	* RATE: Microphone sampling rate. In this project, we use 64 kHz.
+	* CHUNK: Chunk size of buffer size of the microphone. 
+	* f0: Signal frequency. In this project, we use f0 = 25 kHz signal. Note that with current method of generating signal, only a few frequencies can be chosen. 
+	* duration: Signal duration in microsecond. Currently, we use 4 ms duration. 
+	* THRESHOLD: The threshold, i.e., minimal height, to determine the peak. 
+	* TH_ratio_width_50: The minimal width threshold to determine the peak. 
+	* broker_address: The IP address of one of the device.
+	* IgnoredSamples: The number of microphone samples which will be ignored in the beginning of the recording. 
+	* warmUpSecond: The time (in second) that is used to calcuate the DC offset. The data within this time will not be used for peak detection. 
+	* TIMEOUTCOUNTS: It is the number of successive chunk data.  If no peak is detected within this number of successive chunk data. The microphone will be turned off. 
 
 
 
